@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gallery-app-angular": {
+      "hosting": {
+        "gallery-app-angular": [
+          "gallery-app-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gallery-app-angular"
+  }
+}

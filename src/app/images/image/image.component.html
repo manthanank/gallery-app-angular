@@ -1,0 +1,43 @@
+<h1 class="text-center">Upload from here!</h1>
+<div class="card mt-4">
+  <div class="card-body">
+    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+      <div class="text-center">
+        <img [src]="imgSrc" width="350px" height="250px" class="cursor-pointer" (click)="fileUploader.click()">
+      </div>
+      <div class="form-group mt-2">
+        <label class="block">Select file to upload</label>
+        <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
+          (change)="showPreview($event)">
+      </div>
+      <div class="form-group mt-4">
+        <label class="block">Enter Title Here</label>
+        <input class="form-control" formControlName="caption" placeholder="Title">
+        <span *ngIf="formControls.caption.invalid && (formControls.caption.dirty || formControls.caption.touched)">
+          <div *ngIf="formControls.caption.errors?.['required']" class="text-red-600">
+            Title is Required
+          </div>
+        </span>
+      </div>
+      <div class="form-group mt-4">
+        <label class="block">Enter Desc Here</label>
+        <textarea class="form-control" formControlName="desc" placeholder="Desc"></textarea>
+      </div>
+      <div class="form-group mt-2">
+        <label class="block">Select Category Here!</label>
+        <select formControlName="category" class="form-control">
+          <option value="Animal">Animal</option>
+          <option value="Vehicle">Vehicle</option>
+          <option value="Bird">Bird</option>
+        </select>
+      </div>
+      <div class="flex justify-center gap-2 mt-2">
+        <button type="submit" class="btn bg-green-600" [disabled]="!formTemplate.valid">Submit</button>
+        <button type="reset" class="btn bg-slate-500">Reset</button>
+      </div>
+      <div class="flex justify-center mt-2">
+        <a routerLink="/image/list" class="btn btn-primary">Go To Gallery</a>
+      </div>
+    </form>
+  </div>
+</div>
