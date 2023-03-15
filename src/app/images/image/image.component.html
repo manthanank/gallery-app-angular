@@ -12,9 +12,9 @@
       </div>
       <div class="form-group mt-4">
         <label class="block">Enter Title Here</label>
-        <input class="form-control" formControlName="caption" placeholder="Title">
-        <span *ngIf="formControls.caption.invalid && (formControls.caption.dirty || formControls.caption.touched)">
-          <div *ngIf="formControls.caption.errors?.['required']" class="text-red-600">
+        <input class="form-control" formControlName="title" placeholder="Title">
+        <span *ngIf="formControls.title.invalid && (formControls.title.dirty || formControls.title.touched)">
+          <div *ngIf="formControls.title.errors?.['required']" class="text-red-600">
             Title is Required
           </div>
         </span>

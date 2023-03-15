@@ -16,7 +16,7 @@ export class ImageComponent implements OnInit {
   isSubmitted: any;
 
   formTemplate = new FormGroup({
-    caption: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
     category: new FormControl(''),
     desc: new FormControl(''),
     imageUrl: new FormControl('', Validators.required)
@@ -65,7 +65,7 @@ export class ImageComponent implements OnInit {
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
-      caption: '',
+      title: '',
       imageUrl: '',
       desc: '',
       category: 'Animal'
