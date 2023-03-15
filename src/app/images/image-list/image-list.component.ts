@@ -16,7 +16,7 @@ export class ImageListComponent implements OnInit {
     this.service.imageDetailList.snapshotChanges().subscribe(
       list => {
         this.imageList = list.map(item => { return item.payload.val(); });
-        this.rowIndexArray =  Array.from(Array(Math.ceil((this.imageList.length+1) / 3)).keys());
+        this.rowIndexArray =  Array.from(Array(Math.ceil((this.imageList.length))).keys());
       }
     );
   }

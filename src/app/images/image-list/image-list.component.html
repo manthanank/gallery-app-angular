@@ -1,36 +1,15 @@
-<table *ngIf="imageList">
-  <tr *ngFor="let i of rowIndexArray">
-    <!-- <td>
-      <div class="imagebox" *ngIf="i==0">
-        <a routerLink="/image/upload">
-          <img src="/assets/new_image.jpg" class="img-fluid">
-          <span class="imagebox-desc">Insert New Image</span></a>
-      </div> 
-      <div class="imagebox" *ngIf="i!=0">
-        <img [src]="imageList[3*i-1].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i-1].title}}</span>
-      </div> 
-    </td> -->
-    <td *ngIf="imageList[3*i-1]">
-      <div class="imagebox">
-        <img [src]="imageList[3*i-1].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i-1].title}}</span>
-        <span class="imagebox-desc">{{imageList[3*i-1].desc}}</span>
-      </div>
-    </td>
-    <td *ngIf="imageList[3*i]">
-      <div class="imagebox">
-        <img [src]="imageList[3*i].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i].title}}</span>
-        <span class="imagebox-desc">{{imageList[3*i].desc}}</span>
-      </div>
-    </td>
-    <td *ngIf="imageList[3*i+1]">
-      <div class="imagebox">
-        <img [src]="imageList[3*i+1].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i+1].title}}</span>
-        <span class="imagebox-desc">{{imageList[3*i+1].desc}}</span>
-      </div>
-    </td>
-  </tr>
-</table>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <div class="p-4" *ngFor="let image of imageList; let i=index">
+    <div *ngIf="i==0">
+      <a routerLink="/image/upload" class="flex flex-col items-center justify-center h-full">
+        <img src="/assets/new_image.jpg" class="w-full h-auto object-cover mb-2 rounded-lg">
+        <span class="text-lg font-bold">Insert New Image</span>
+      </a>
+    </div> 
+    <div *ngIf="i!=0">
+      <img [src]="image.imageUrl" class="w-full h-auto object-cover rounded-lg mb-2">
+      <span class="block text-lg font-bold">{{image.title}}</span>
+      <span class="block text-gray-500">{{image.desc}}</span>
+    </div>
+  </div>
+</div>

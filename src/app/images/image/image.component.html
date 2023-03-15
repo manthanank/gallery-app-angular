@@ -1,42 +1,51 @@
-<h1 class="text-center">Upload from here!</h1>
-<div class="card mt-4">
-  <div class="card-body">
+<h1 class="text-center text-3xl font-bold my-8">Upload from here!</h1>
+<div class="max-w-md mx-auto">
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
       <div class="text-center">
-        <img [src]="imgSrc" width="350px" height="250px" class="cursor-pointer" (click)="fileUploader.click()">
+        <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()"
+          class="cursor-pointer border-2 border-dashed border-gray-400 rounded-md p-4">
       </div>
-      <div class="form-group mt-2">
-        <label class="block">Select file to upload</label>
-        <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
-          (change)="showPreview($event)">
+      <div class="mt-4">
+        <label class="block text-gray-700 font-bold mb-2">Select file to upload</label>
+        <input type="file" accept="image/*" #fileUploader formControlName="imageUrl"
+          (change)="showPreview($event)"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       </div>
-      <div class="form-group mt-4">
-        <label class="block">Enter Title Here</label>
-        <input class="form-control" formControlName="title" placeholder="Title">
+      <div class="mt-4">
+        <label class="block text-gray-700 font-bold mb-2">Enter Title Here</label>
+        <input formControlName="title" placeholder="Title"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         <span *ngIf="formControls.title.invalid && (formControls.title.dirty || formControls.title.touched)">
           <div *ngIf="formControls.title.errors?.['required']" class="text-red-600">
             Title is Required
           </div>
         </span>
       </div>
-      <div class="form-group mt-4">
-        <label class="block">Enter Desc Here</label>
-        <textarea class="form-control" formControlName="desc" placeholder="Desc"></textarea>
+      <div class="mt-4">
+        <label class="block text-gray-700 font-bold mb-2">Enter Desc Here</label>
+        <textarea formControlName="desc" placeholder="Desc"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
       </div>
-      <div class="form-group mt-2">
-        <label class="block">Select Category Here!</label>
-        <select formControlName="category" class="form-control">
+      <div class="mt-4">
+        <label class="block text-gray-700 font-bold mb-2">Select Category Here!</label>
+        <select formControlName="category"
+          class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
           <option value="Animal">Animal</option>
           <option value="Vehicle">Vehicle</option>
           <option value="Bird">Bird</option>
         </select>
       </div>
-      <div class="flex justify-center gap-2 mt-2">
-        <button type="submit" class="btn bg-green-600" [disabled]="!formTemplate.valid">Submit</button>
-        <button type="reset" class="btn bg-slate-500">Reset</button>
+      <div class="flex justify-center mt-6 gap-2">
+        <button type="submit"
+          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          [disabled]="!formTemplate.valid">Submit</button>
+        <button type="reset"
+          class="bg-slate-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Reset</button>
       </div>
-      <div class="flex justify-center mt-2">
-        <a routerLink="/image/list" class="btn btn-primary">Go To Gallery</a>
+      <div class="flex justify-center mt-4">
+        <a routerLink="/image/list"
+          class="text-sm font-bold text-gray-700 hover:text-gray-900">Go To Gallery</a>
       </div>
     </form>
   </div>
